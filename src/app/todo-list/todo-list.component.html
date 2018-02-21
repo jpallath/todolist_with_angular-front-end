@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Todo!</title>
+  </head>
+  <body>
+    <div class="todo-list">
+      <label class="todo-input">
+        <input (keyup.enter)="add(todoName.value); todoName.value=''" #todoName />
+      </label>
+      <button (click)="add(todoName.value); todoName.value=''">add</button>
+      <ul *ngFor="let todo of todos">
+        <li (click)="update(todo.completed, todo._id, todo)" class="finished-{{todo.completed}}">{{todo.name}}
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
